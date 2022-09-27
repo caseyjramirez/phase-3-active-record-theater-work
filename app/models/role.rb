@@ -12,4 +12,8 @@ class Role < ActiveRecord::Base
             audition.location
         end
     end
+
+    def lead
+      auditions.find_by(hired:true) || "No actor has been hired for this role"
+    end
 end
