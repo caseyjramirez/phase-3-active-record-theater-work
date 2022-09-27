@@ -16,4 +16,8 @@ class Role < ActiveRecord::Base
     def lead
       auditions.find_by(hired:true) || "No actor has been hired for this role"
     end
+
+    def understudy
+        auditions.where(hired:true).second || "No actor has been hired for understudy for this role"
+    end
 end
